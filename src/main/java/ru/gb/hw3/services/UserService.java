@@ -53,19 +53,24 @@ public class UserService {
     }
 
     public List<User> getSortedUsers(String field) {
-        if (field.equals("name")) {
-            notificationService.notify("Get sorted users by names");
-            return dataProcessingService.sortByName();
-        } else if (field.equals("email")) {
-            notificationService.notify("Get sorted users by email");
-            return dataProcessingService.sortByEmail();
-        } else if (field.equals("age")) {
-            notificationService.notify("Get sorted users by age");
-            return dataProcessingService.sortByAge();
-        } else {
-            notificationService.error("Unknown field: " + field);
-            notificationService.notify("Get sorted users by names");
-            return dataProcessingService.sortByName();
+        switch (field) {
+            case "name" -> {
+                notificationService.notify("Get sorted users by names");
+                return dataProcessingService.sortByName();
+            }
+            case "email" -> {
+                notificationService.notify("Get sorted users by email");
+                return dataProcessingService.sortByEmail();
+            }
+            case "age" -> {
+                notificationService.notify("Get sorted users by age");
+                return dataProcessingService.sortByAge();
+            }
+            default -> {
+                notificationService.error("Unknown field: " + field);
+                notificationService.notify("Get sorted users by names");
+                return dataProcessingService.sortByName();
+            }
         }
     }
 
