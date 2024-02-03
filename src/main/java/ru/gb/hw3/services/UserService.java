@@ -69,9 +69,9 @@ public class UserService {
         }
     }
 
-    public boolean deleteUser(UUID id) {
-        boolean deleted = userRepository.delete(id);
-        if (deleted) {
+    public boolean deleteUser(String id) {
+        boolean deletedUser = userRepository.delete(UUID.fromString(id));
+        if (deletedUser) {
             notificationService.notify("User " + id + " has been deleted");
             return true;
         }
