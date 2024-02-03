@@ -18,18 +18,18 @@ public class DataProcessingService {
     }
 
     public List<User> sortByName() {
-        return userRepository.getUsers().stream().sorted(Comparator.comparing(User::getName)).toList();
+        return userRepository.getAllUsers().stream().sorted(Comparator.comparing(User::getName)).toList();
     }
 
     public List<User> sortByEmail() {
-        return userRepository.getUsers().stream().sorted(Comparator.comparing(User::getEmail)).toList();
+        return userRepository.getAllUsers().stream().sorted(Comparator.comparing(User::getEmail)).toList();
     }
 
     public List<User> sortByAge() {
-        return userRepository.getUsers().stream().sorted(Comparator.comparing(User::getAge)).toList();
+        return userRepository.getAllUsers().stream().sorted(Comparator.comparing(User::getAge)).toList();
     }
 
     public List<User> filterByAge(Integer age) {
-        return userRepository.getUsers().stream().filter(u -> u.getAge() >= age).toList();
+        return userRepository.getAllUsers().stream().filter(u -> u.getAge() >= age).toList();
     }
 }

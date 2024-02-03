@@ -19,7 +19,7 @@ public class UserRepository {
         return user;
     }
 
-    public List<User> getUsers() {
+    public List<User> getAllUsers() {
         return users;
     }
 
