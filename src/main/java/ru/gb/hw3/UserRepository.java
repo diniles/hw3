@@ -1,9 +1,12 @@
 package ru.gb.hw3;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Repository
 public class UserRepository {
     private final List<User> users;
 
